@@ -6,5 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  public editorContent: string = 'My Document\'s Title';
+
+  public options: Object = {
+    placeholderText: 'Edit Your Dich Here!',
+    // toolbarBottom: false,
+    toolbarButtons: ['undo', 'redo' ,'bold', 'italic'],
+    toolbarButtonsXS: ['undo', 'underline'],
+    innerHTML: 'Click Me',
+    charCounterCount: false
+  };
+
+
+  printEditor() {
+    console.log(this.editorContent);
+  }
 }

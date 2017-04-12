@@ -5,16 +5,31 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
+import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
+
+import { CKEditorModule } from 'ng2-ckeditor';
+import { EditorComponent } from './editor/editor.component';
+import {RouterModule} from "@angular/router";
+import {EditorService} from "./editor/editor.service";
+import {GeneralLib} from "./lib";
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EditorComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot(),
+    CKEditorModule,
+    RouterModule.forRoot([
+      { path: "editor", component: EditorComponent },
+    ])
   ],
-  providers: [],
+  providers: [EditorService, GeneralLib],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
